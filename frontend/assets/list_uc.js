@@ -18,7 +18,9 @@ export default {
 
     },
 
-    created() {},
+    created() {
+        this.loadUC();
+    },
 
     computed: {},
 
@@ -27,7 +29,22 @@ export default {
 
 
         loadUC() {
-            axios.get(config.url_api, {headers:{token}})
+            axios.get(config.url_api )
+            .then(res => {
+                let data = res.data.info ;
+                for(let i in data){
+                    let uc = {title: "", author: "", url: "", file: "", type: ""};
+                    uc.title = data[i].title;
+                    uc.author = data[i].author;
+                    uc.url = data[i].url;
+                    uc.file = data[i].file;
+                    uc.type = data[i].type;
+                    this.universalContents.push(uc);
+                    console.log(uc)
+
+                }
+            })
+            .catch(err => console.log(err))
         }
 
 
