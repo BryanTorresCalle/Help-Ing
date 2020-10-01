@@ -1,17 +1,20 @@
 <template>
   <div class="container">
     <h1>Lista de Usuarios</h1>
-  <b-card img-src= "https://material.io/resources/icons/?icon=book&style=baseline" img-left>
-     <b-card-body >
-       <b-table  responsive stacked :items="universalContents"></b-table>
-      </b-card-body>
-  </b-card>
-
-
-
-      
-
-
+    <b-card>
+      <b-table
+        stacked
+        responsive
+        :items="universalContents"
+        
+      >
+        <template  v-slot:cell(icon)="data">
+          
+          <b-img :src="data.item.icon" width="100px" height="100px"></b-img>
+         
+        </template>
+      </b-table>
+    </b-card>
   </div>
 </template>
 
@@ -20,5 +23,4 @@
 
 
 <style>
-
 </style>

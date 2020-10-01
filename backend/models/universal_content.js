@@ -20,6 +20,10 @@ const ucSchema = new mongoose.Schema(
     type: {
       type: Number,
       required: true
+    },
+    icon: {
+      type: String,
+      default: "https://image.flaticon.com/icons/png/512/4/4327.png"
     }
   }
   

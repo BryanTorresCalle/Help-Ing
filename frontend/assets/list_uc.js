@@ -33,12 +33,13 @@ export default {
             .then(res => {
                 let data = res.data.info ;
                 for(let i in data){
-                    let uc = {title: "", author: "", url: "", file: "", type: ""};
+                    let uc = {title: "", icon: "", author: "", url: "", file: "", type: "" };
+                    uc.file = data[i].file;
                     uc.title = data[i].title;
                     uc.author = data[i].author;
                     uc.url = data[i].url;
-                    uc.file = data[i].file;
                     uc.type = data[i].type;
+                    uc.icon = data[i].icon;
                     this.universalContents.push(uc);
                     console.log(uc)
 

@@ -13,18 +13,14 @@ router.get('/', async (req, res) => {
 })
 
 
-router.get('/:id', (req, res) => {
-    res.json(res.universal_content);
-})
-
-
-router.post('/', async (req, res) => {
+router.post('/uc', async (req, res) => {
      universal_content = new Universal({
         title: req.body.title,
         author: req.body.author,
         url: req.body.url,
         file: req.body.file,
-        type: req.body.type
+        type: req.body.type,
+        icon: req.body.icon
     })
 
     try {
