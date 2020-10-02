@@ -18,7 +18,7 @@ const ucSchema = new mongoose.Schema(
       
     },
     type: {
-      type: Number,
+      type: String,
       required: true
     },
     icon: {

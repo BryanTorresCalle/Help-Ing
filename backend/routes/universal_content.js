@@ -32,12 +32,6 @@ router.post('/uc', async (req, res) => {
     
 })
 
-router.patch('/:id', (req, res) => {
-    
-})
 
-router.delete('/:id', (req, res) => {
-    
-})
 
 module.exports = router

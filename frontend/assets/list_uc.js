@@ -29,7 +29,8 @@ export default {
 
 
         loadUC() {
-            axios.get(config.url_api )
+            
+            axios.get(config.url_api + "universal_content")
             .then(res => {
                 let data = res.data.info ;
                 for(let i in data){

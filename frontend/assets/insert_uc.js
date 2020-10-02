@@ -20,7 +20,7 @@ export default {
                 icon: ""
             },
 
-            types: [{ value: 0 }, { value: 1 }, { value: 2 }]
+            types: []
 
 
         };
@@ -28,7 +28,7 @@ export default {
     },
 
     created() {
-
+        this.loadTpyes();
     },
 
     computed: {},
@@ -36,12 +36,35 @@ export default {
     methods: {
 
 
+        loadTpyes(){
+
+            axios.get(config.url_api + "type")
+            .then(res => {
+                let data = res.data.info;
+                for(let i in data){
+                    let type = {name: ""}
+                    type.name = data[i].name;
+                    this.types.push(type);
+                    console.log(type);
+                    console.log(this.types);
+                }
+            })
+            .catch(err => console.log(err))
+
+        },
+
+
         createUC() {
-            this.uc.type = 0
+            
+            
+            if(this.uc.icon = ""){
+                this.uc.icon = "https://image.flaticon.com/icons/png/512/4/4327.png"
+            }
+            console.log(this.uc);
             if(this.uc.title.length > 0 && this.uc.author.length > 0 ){
 
             axios
-                .post(config.url_api + "/uc", this.uc)
+                .post(config.url_api + "universal_content/uc", this.uc)
                 .then(res => {
                     console.log(res);
                     this.uc = {
@@ -49,7 +72,7 @@ export default {
                         author: "",
                         url: "",
                         file: "",
-                        type: 0,
+                        type: "",
                         icon: ""
                     };
                     alert("El contenido se ha agregado exitosamente");

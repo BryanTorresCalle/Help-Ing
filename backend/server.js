@@ -17,4 +17,7 @@ app.use(cors());
 const ucRouter = require('./routes/universal_content')
 app.use('/universal_content', ucRouter)
 
+const typeRouter = require('./routes/type')
+app.use('/type', typeRouter)
+
 app.listen(3001, () => console.log("Server started"))

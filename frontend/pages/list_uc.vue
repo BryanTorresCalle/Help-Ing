@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1>Lista de Usuarios</h1>
-    <b-card>
+    
+    <b-card title="Lista de Usuarios">
       <b-table
         stacked
         responsive
